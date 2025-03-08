@@ -39,6 +39,9 @@ class Cache(commands.Cog):
                     "roles": [ r.id for r in guild.roles ],
                     "channels": [ c.id for c in guild.channels ],
                     "_last_updated": discord.utils.utcnow(),
+                },
+                "$addToSet": {
+                    "bot_ids": self.bot.user.id,
                 }},
                 upsert=True,
             )
