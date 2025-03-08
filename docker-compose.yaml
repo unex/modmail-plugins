@@ -1,0 +1,11 @@
+services:
+  bot:
+    image: ghcr.io/modmail-dev/modmail:master
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./:/opt/modmail/plugins/@local
+
+volumes:
+  mongodb:
